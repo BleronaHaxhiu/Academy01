@@ -23,3 +23,13 @@ app.use(function (req, res, next) {
 
 app.use(cors());
 app.use(router);
+
+const connectMongo = require("./database/mongo");
+connectMongo();
+
+// PORT
+const port = process.env.APP_PORT || 3000;
+app.listen(port, () => console.log(`Listening on port ${port}`));
+
+testDatabaseConnection();
+
